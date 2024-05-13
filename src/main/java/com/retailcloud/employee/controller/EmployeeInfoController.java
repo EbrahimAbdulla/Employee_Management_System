@@ -52,5 +52,19 @@ public class EmployeeInfoController {
 		SummaryResponseModel model = employeeService.fetchAllEmployeeDetails(dto);
 		return new ResponseEntity<>(model, model.getStatus());
 	}
+	
+	/**
+	 * Retrieves a list of Employees information.
+	 * 
+	 * @param EmployeDto It contain a list of parameter that use for Fetching The
+	 *                  EmployeDto data according to parameter.
+	 * @return An SummaryResponseModel containing the list of retrieved EmployeDto
+	 *         with metadata.
+	 */
+	@GetMapping("/get-employee-details")
+	public ResponseEntity<?> fetchAllEmployeeInfo(@Valid EmployeDto dto) {
+		SummaryResponseModel model = employeeService.fetchAllEmployeeInfo(dto);
+		return new ResponseEntity<>(model, model.getStatus());
+	}
 
 }

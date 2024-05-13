@@ -1,0 +1,92 @@
+
+=======================================================================================================================================================
+CREATE DB SCRIPT FOR ADDRESS TABLE AND DATABASE STRUCTURE
+=======================================================================================================================================================
+
+-- For creating address table
+-- WARNING: It may differ from actual native database DDL
+CREATE TABLE ADDRESS_INFO (
+    address_id INT PRIMARY KEY,
+    address1 VARCHAR(255),
+    address2 VARCHAR(255),
+    pincode VARCHAR(10), 
+    city_name VARCHAR(255),
+    state_name VARCHAR(255),
+    country_name VARCHAR(255)
+);
+
+
+Explanation of the table structure:
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+address_id: Primary key for the address table.
+address1: First line of the address. Defined as VARCHAR(255) to allow up to 255 characters.
+address2: Second line of the address. Defined as VARCHAR(255) assuming it's a text field.
+pincode: Pincode of the address. Defined as VARCHAR(255)
+city_name: Name of the city. Defined as VARCHAR(255).
+state_name: Name of the state. Defined as VARCHAR(255).
+country_name: Name of the country. Defined as VARCHAR(255).
+
+=======================================================================================================================================================
+CREATE DB SCRIPT FOR EMPLOYEE TABLE AND DATABASE STRUCTURE
+=======================================================================================================================================================
+--For creating table for employee
+-- WARNING: It may differ from actual native database DDL
+CREATE TABLE EMPLOYEE_INFO (
+    employee_id INT PRIMARY KEY,
+    employee_name VARCHAR(255) NOT NULL,
+    date_of_birth DATE,
+    role VARCHAR(255),
+    joining_date DATE,
+    yearly_bonus_percentage VARCHAR(50),
+    is_reporting_manager BOOLEAN,
+    reporting_manager_id INT, -- Foreign key to employee_id
+    CONSTRAINT fk_reporting_manager FOREIGN KEY (reporting_manager_id) REFERENCES EMPLOYEE_INFO(employee_id)
+);
+
+
+
+Explanation of the table structure:
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+employee_id: Primary key for the employee table.
+employee_name: Name of the employee. Defined as VARCHAR(255) to allow up to 255 characters.
+date_of_birth: Date of birth of the employee. Defined as DATE data type.
+role: Role of the employee. Defined as VARCHAR(255).
+joining_date: Date when the employee joined. Defined as DATE data type.
+yearly_bonus_percentage: Yearly bonus percentage. Defined as VARCHAR(50).
+is_reporting_manager: Boolean field indicating if the employee is a reporting manager.
+reporting_manager_id: Foreign key referencing the employee_id of the reporting manager. Nullable because not all employees will have a reporting manager.
+
+
+
+
+
+
+=======================================================================================================================================================
+CREATE DB SCRIPT FOR DEPARTMENT_INFO TABLE AND DATABASE STRUCTURE
+=======================================================================================================================================================
+-- For creating Department table
+-- WARNING: It may differ from actual native database DDL
+CREATE TABLE DEPARTMENT_INFO (
+    department_id INT PRIMARY KEY,
+    department_name VARCHAR(255) NOT NULL,
+    creation_date DATE,
+    location VARCHAR(255),
+    no_of_employees INT,
+    budget DECIMAL(10, 2) 
+);
+
+Explanation of the table structure:
+
+=> while creating department we need to create with head of the department employee details also.
+=> department_id: Primary key for the department table.
+=> department_name: Name of the department. Defined as VARCHAR(255) to allow up to 255 characters for the department name.
+=> creation_date: Date when the department was created. Defined as DATE data type.
+=> location: Location of the department. Defined as VARCHAR(255) assuming it's a text field.
+=> no_of_employees: Number of employees in the department. Defined as INT.
+=> budget: Budget allocated to the department.
+
+=======================================================================================================================================================
+

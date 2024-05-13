@@ -1,0 +1,98 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "departmentName": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    },
+    "noOfEmployees": {
+      "type": "integer"
+    },
+    "budget": {
+      "type": "integer"
+    },
+    "employee": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "emplyeeName": {
+              "type": "string"
+            },
+            "dateOfBirth": {
+              "type": "string"
+            },
+            "addressInfo": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "address1": {
+                      "type": "string"
+                    },
+                    "address2": {
+                      "type": "string"
+                    },
+                    "pincode": {
+                      "type": "string"
+                    },
+                    "cityName": {
+                      "type": "string"
+                    },
+                    "stateName": {
+                      "type": "string"
+                    },
+                    "countryName": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "address1",
+                    "address2",
+                    "pincode",
+                    "cityName",
+                    "stateName",
+                    "countryName"
+                  ]
+                }
+              ]
+            },
+            "role": {
+              "type": "string"
+            },
+            "joiningDate": {
+              "type": "string"
+            },
+            "yearlyBonusPercentage": {
+              "type": "string"
+            },
+            "isReportingManager": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "emplyeeName",
+            "dateOfBirth",
+            "addressInfo",
+            "role",
+            "joiningDate",
+            "yearlyBonusPercentage",
+            "isReportingManager"
+          ]
+        }
+      ]
+    }
+  },
+  "required": [
+    "departmentName",
+    "location",
+    "noOfEmployees",
+    "budget",
+    "employee"
+  ]
+}

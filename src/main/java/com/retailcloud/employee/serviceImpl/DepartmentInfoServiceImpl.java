@@ -113,24 +113,32 @@ public class DepartmentInfoServiceImpl implements DepartmentInfoService{
 	 */
 	@Override
 	public ResponseModel deleteDepartmentById(Long id) {
-		Optional<DepartmentInfo> deparmentObj = departmentInfoRepo.findById(id);
-		if (!deparmentObj.isPresent()) {
-			throw new NoDataFoundException("Department details not found for given id :" + id);
-		}
 		try {
-			List<EmployeeInfo> employee = deparmentObj.get().getEmployee();
-			if (CollectionUtils.isEmpty(employee)) {
-				departmentInfoRepo.deleteById(id);
-				return new ResponseModel(HttpStatus.OK.value(), HttpStatus.OK, true, "Deleted successfully");
-			} else {
-				return new ResponseModel(HttpStatus.CONFLICT.value(), HttpStatus.CONFLICT, false,
-						"Department has employees.");
+			Optional<DepartmentInfo> deparmentObj = departmentInfoRepo.findById(id);
+			if (!deparmentObj.isPresent()) {
+				throw new NoDataFoundException("Department details not found for given id :" + id);
 			}
+			try {
+				List<EmployeeInfo> employee = deparmentObj.get().getEmployee();
+				if (CollectionUtils.isEmpty(employee)) {
+					departmentInfoRepo.deleteById(id);
+					return new ResponseModel(HttpStatus.OK.value(), HttpStatus.OK, true, "Deleted successfully");
+				} else {
+					return new ResponseModel(HttpStatus.CONFLICT.value(), HttpStatus.CONFLICT, false,
+							"Department has employees.");
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+				return new ResponseModel(HttpStatus.CONFLICT.value(), HttpStatus.CONFLICT, false,
+						"Exception occured while excecuting method");
+			}
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			return new ResponseModel(HttpStatus.CONFLICT.value(), HttpStatus.CONFLICT, false,
-					"Exception occured while excecuting method");
-		}
+					"Something went wrong.");
+
+		}				
 	}
 
 
@@ -145,52 +153,62 @@ public class DepartmentInfoServiceImpl implements DepartmentInfoService{
 	 */
 	@Override
 	public SummaryResponseModel fetchDepartmentDetails(DepartmentDto dto) {
-		PageMetaModel metaModel = null;
-        List<DepartmentInformationResponseModel> responseList = new ArrayList<>();
-        if ("employee".equalsIgnoreCase(dto.getExpand())) {
-            List<DepartmentInfo> departmentInfoList = departmentInfoRepo.findAll();
-            for (DepartmentInfo departmentInfo : departmentInfoList) {
-                DepartmentInformationResponseModel deptInfoMainModel = new DepartmentInformationResponseModel();
-                utils.updateDeptMainModel(deptInfoMainModel, departmentInfo);
-                if (!CollectionUtils.isEmpty(departmentInfo.getEmployee())) {
-                    List<ManagingDirectorsDetails> managingDirectorList = new ArrayList<>();
-                    for (EmployeeInfo reportingManger : departmentInfo.getEmployee()) {
-                        ManagingDirectorsDetails managingDirectorsDetails = new ManagingDirectorsDetails();
-                        ManagingDirectorsDetails updateManagingDirectorDetails = utils.updateManagingDirectorDetails(managingDirectorsDetails, reportingManger);
-                        List<EmployeeInfo> employees = employeeRepo.findByManagingDirectorId(reportingManger.getEmployeeId());
-                        ArrayList<EmployeeInfoModel> employeeModelList = new ArrayList<>();
-                        for (EmployeeInfo empl : employees) {
-                            EmployeeInfoModel employee = mapper.map(empl, EmployeeInfoModel.class);
-                            employeeModelList.add(employee);
-                        }
-                        updateManagingDirectorDetails.setEmployees(employeeModelList);
-                        managingDirectorList.add(updateManagingDirectorDetails);
-                    }
-                    deptInfoMainModel.setManagingDirectorDetails(managingDirectorList);
-                }
-                responseList.add(deptInfoMainModel);
-            }
-            if(dto.getPage() != null && dto.getSize()!=  null) {
-            	Long totalElements = (long) responseList.size();
-    			int totalPages = (int) Math.ceil((double) totalElements / dto.getSize());
-    			metaModel = new PageMetaModel(dto.getPage(), dto.getSize(), totalElements, totalPages);
-    			int firstIndex = (dto.getPage() - 1) * dto.getSize();
-    			int maxIndex = dto.getSize() + firstIndex;
-    			List<DepartmentInformationResponseModel> paginatedData = null;
+		
+		try {
+			PageMetaModel metaModel = null;
+	        List<DepartmentInformationResponseModel> responseList = new ArrayList<>();
+	        if ("employee".equalsIgnoreCase(dto.getExpand())) {
+	            List<DepartmentInfo> departmentInfoList = departmentInfoRepo.findAll();
+	            for (DepartmentInfo departmentInfo : departmentInfoList) {
+	                DepartmentInformationResponseModel deptInfoMainModel = new DepartmentInformationResponseModel();
+	                utils.updateDeptMainModel(deptInfoMainModel, departmentInfo);
+	                if (!CollectionUtils.isEmpty(departmentInfo.getEmployee())) {
+	                    List<ManagingDirectorsDetails> managingDirectorList = new ArrayList<>();
+	                    for (EmployeeInfo reportingManger : departmentInfo.getEmployee()) {
+	                        ManagingDirectorsDetails managingDirectorsDetails = new ManagingDirectorsDetails();
+	                        ManagingDirectorsDetails updateManagingDirectorDetails = utils.updateManagingDirectorDetails(managingDirectorsDetails, reportingManger);
+	                        List<EmployeeInfo> employees = employeeRepo.findByManagingDirectorId(reportingManger.getEmployeeId());
+	                        ArrayList<EmployeeInfoModel> employeeModelList = new ArrayList<>();
+	                        for (EmployeeInfo empl : employees) {
+	                            EmployeeInfoModel employee = mapper.map(empl, EmployeeInfoModel.class);
+	                            employeeModelList.add(employee);
+	                        }
+	                        updateManagingDirectorDetails.setEmployees(employeeModelList);
+	                        managingDirectorList.add(updateManagingDirectorDetails);
+	                    }
+	                    deptInfoMainModel.setManagingDirectorDetails(managingDirectorList);
+	                }
+	                responseList.add(deptInfoMainModel);
+	            }
+	            if(dto.getPage() != null && dto.getSize()!=  null) {
+	            	Long totalElements = (long) responseList.size();
+	    			int totalPages = (int) Math.ceil((double) totalElements / dto.getSize());
+	    			metaModel = new PageMetaModel(dto.getPage(), dto.getSize(), totalElements, totalPages);
+	    			int firstIndex = (dto.getPage() - 1) * dto.getSize();
+	    			int maxIndex = dto.getSize() + firstIndex;
+	    			List<DepartmentInformationResponseModel> paginatedData = null;
 
-    			if (responseList != null && responseList.size() <= maxIndex) {
-    				firstIndex = Math.min((dto.getPage() - 1) * dto.getSize(), responseList.size());
-    				maxIndex = Math.min(dto.getSize() + firstIndex, responseList.size());
-    			}
+	    			if (responseList != null && responseList.size() <= maxIndex) {
+	    				firstIndex = Math.min((dto.getPage() - 1) * dto.getSize(), responseList.size());
+	    				maxIndex = Math.min(dto.getSize() + firstIndex, responseList.size());
+	    			}
 
-    			paginatedData = responseList.subList(firstIndex, maxIndex);
-    			return new SummaryResponseModel(HttpStatus.OK.value(), HttpStatus.OK, paginatedData,
-    					"Data fetched successfully", metaModel);   	
-            }
-            return new SummaryResponseModel(HttpStatus.OK.value(), HttpStatus.OK, responseList,
-                    "Employee data fetched successfully", metaModel);
-        }
-        return null;
+	    			paginatedData = responseList.subList(firstIndex, maxIndex);
+	    			return new SummaryResponseModel(HttpStatus.OK.value(), HttpStatus.OK, paginatedData,
+	    					"Data fetched successfully", metaModel);   	
+	            }
+	            return new SummaryResponseModel(HttpStatus.OK.value(), HttpStatus.OK, responseList,
+	                    "Employee data fetched successfully", metaModel);
+	        }
+	        return null;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		  	return new SummaryResponseModel(HttpStatus.CONFLICT.value(), HttpStatus.CONFLICT, null,
+	                "Something went wrong.", null);
+		}
+		
+		
     }
 
 	/**
@@ -203,31 +221,40 @@ public class DepartmentInfoServiceImpl implements DepartmentInfoService{
 	 */
 	@Override
 	public SummaryResponseModel fetchAll(@Valid DepartmentDto dto) {
+		try {
+			
+			List<DepartmentInfo> departmentInfoList = departmentInfoRepo.findAll();   
+	        if(CollectionUtils.isEmpty(departmentInfoList)) {
+	        	return new SummaryResponseModel(HttpStatus.CONFLICT.value(), HttpStatus.CONFLICT, null,
+		                "Employee Details not found.", null);
+	        }
+	        List<DepartmentInfoModel> responseList = mapper.map(departmentInfoList, new TypeToken<List<DepartmentInfoModel>>(){}.getType());
+			PageMetaModel metaModel = null;
+	        if(dto.getPage() != null && dto.getSize()!=  null) {
+	        	Long totalElements = (long) responseList.size();
+				int totalPages = (int) Math.ceil((double) totalElements / dto.getSize());
+				metaModel = new PageMetaModel(dto.getPage(), dto.getSize(), totalElements, totalPages);
+				int firstIndex = (dto.getPage() - 1) * dto.getSize();
+				int maxIndex = dto.getSize() + firstIndex;
+				List<DepartmentInfoModel> paginatedData = null;
 
-        List<DepartmentInfo> departmentInfoList = departmentInfoRepo.findAll();   
-        if(CollectionUtils.isEmpty(departmentInfoList)) {
-        	return new SummaryResponseModel(HttpStatus.CONFLICT.value(), HttpStatus.CONFLICT, null,
-	                "Employee Details not found.", null);
-        }
-        List<DepartmentInfoModel> responseList = mapper.map(departmentInfoList, new TypeToken<List<DepartmentInfoModel>>(){}.getType());
-		PageMetaModel metaModel = null;
-        if(dto.getPage() != null && dto.getSize()!=  null) {
-        	Long totalElements = (long) responseList.size();
-			int totalPages = (int) Math.ceil((double) totalElements / dto.getSize());
-			metaModel = new PageMetaModel(dto.getPage(), dto.getSize(), totalElements, totalPages);
-			int firstIndex = (dto.getPage() - 1) * dto.getSize();
-			int maxIndex = dto.getSize() + firstIndex;
-			List<DepartmentInfoModel> paginatedData = null;
+				if (responseList != null && responseList.size() <= maxIndex) {
+					firstIndex = Math.min((dto.getPage() - 1) * dto.getSize(), responseList.size());
+					maxIndex = Math.min(dto.getSize() + firstIndex, responseList.size());
+				}
+				paginatedData = responseList.subList(firstIndex, maxIndex);
+				return new SummaryResponseModel(HttpStatus.OK.value(), HttpStatus.OK, paginatedData,
+						"Data fetched successfully", metaModel);   	
+	        }    
+	        return new SummaryResponseModel(HttpStatus.OK.value(), HttpStatus.OK, responseList,
+	                "Fetched details successfully.", null);	
+		} catch (Exception e) {
 
-			if (responseList != null && responseList.size() <= maxIndex) {
-				firstIndex = Math.min((dto.getPage() - 1) * dto.getSize(), responseList.size());
-				maxIndex = Math.min(dto.getSize() + firstIndex, responseList.size());
-			}
-			paginatedData = responseList.subList(firstIndex, maxIndex);
-			return new SummaryResponseModel(HttpStatus.OK.value(), HttpStatus.OK, paginatedData,
-					"Data fetched successfully", metaModel);   	
-        }    
-        return new SummaryResponseModel(HttpStatus.OK.value(), HttpStatus.OK, responseList,
-                "Fetched details successfully.", null);		
+			e.printStackTrace();
+			return new SummaryResponseModel(HttpStatus.CONFLICT.value(), HttpStatus.CONFLICT, null,
+	                "Something went wrong.", null);
+		}
+
+        	
 	}
 }

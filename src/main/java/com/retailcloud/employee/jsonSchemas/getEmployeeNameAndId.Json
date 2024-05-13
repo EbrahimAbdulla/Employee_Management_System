@@ -1,0 +1,125 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "statusCode": {
+      "type": "integer"
+    },
+    "status": {
+      "type": "string"
+    },
+    "data": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "employeeName": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "employeeName"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "employeeName": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "employeeName"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "employeeName": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "employeeName"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "employeeName": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "employeeName"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "employeeName": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "employeeName"
+          ]
+        }
+      ]
+    },
+    "message": {
+      "type": "string"
+    },
+    "meta": {
+      "type": "object",
+      "properties": {
+        "page": {
+          "type": "integer"
+        },
+        "size": {
+          "type": "integer"
+        },
+        "totalElements": {
+          "type": "integer"
+        },
+        "totalPages": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "page",
+        "size",
+        "totalElements",
+        "totalPages"
+      ]
+    }
+  },
+  "required": [
+    "statusCode",
+    "status",
+    "data",
+    "message",
+    "meta"
+  ]
+}

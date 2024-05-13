@@ -1,0 +1,9 @@
+INSERT INTO retail_cloud.department_info
+(budget, no_of_employees, creation_date, department_id, department_name, "location")
+VALUES(10000.0, 10.0, '2024-05-12 00:00:00.000', 1, 'HR DEPARTMENT', 'bangluru');
+INSERT INTO retail_cloud.department_info
+(budget, no_of_employees, creation_date, department_id, department_name, "location")
+VALUES(10000.0, 10.0, '2024-05-12 00:00:00.000', 2, 'TESTER''S DEPARTMENT', 'bangluru');
+INSERT INTO retail_cloud.department_info
+(budget, no_of_employees, creation_date, department_id, department_name, "location")
+VALUES(10000.0, 10.0, '2024-05-12 00:00:00.000', 3, 'DEVELOPER''S DEPARTMENT', 'bangluru');

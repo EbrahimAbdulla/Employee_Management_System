@@ -7,4 +7,5 @@ public class EmployeDto {
 
 	private Integer page;
 	private Integer size;
+	private Boolean lookup;
 }

@@ -1,0 +1,99 @@
+INSERT INTO retail_cloud.employee_info
+(is_reporting_manager, date_of_birth, department_id, employee_id, joining_date, reporting_manager_id, emplyee_name, "role", yearly_bonus_percentage)
+VALUES(NULL, '1998-05-22 00:00:00.000', NULL, 74, '2022-09-09 00:00:00.000', 3, 'Sana', 'Junior Developer', '25');
+INSERT INTO retail_cloud.employee_info
+(is_reporting_manager, date_of_birth, department_id, employee_id, joining_date, reporting_manager_id, emplyee_name, "role", yearly_bonus_percentage)
+VALUES(NULL, '2000-06-12 00:00:00.000', NULL, 75, '2022-09-09 00:00:00.000', 3, 'Faris', 'Junior Developer', '29');
+INSERT INTO retail_cloud.employee_info
+(is_reporting_manager, date_of_birth, department_id, employee_id, joining_date, reporting_manager_id, emplyee_name, "role", yearly_bonus_percentage)
+VALUES(NULL, '1996-05-28 00:00:00.000', NULL, 76, '2022-09-09 00:00:00.000', 3, 'Ali', 'Junior Developer', '78');
+INSERT INTO retail_cloud.employee_info
+(is_reporting_manager, date_of_birth, department_id, employee_id, joining_date, reporting_manager_id, emplyee_name, "role", yearly_bonus_percentage)
+VALUES(NULL, '1999-05-27 00:00:00.000', NULL, 77, '2022-09-09 00:00:00.000', 3, 'Mohammed', 'Junior Developer', '89');
+INSERT INTO retail_cloud.employee_info
+(is_reporting_manager, date_of_birth, department_id, employee_id, joining_date, reporting_manager_id, emplyee_name, "role", yearly_bonus_percentage)
+VALUES(NULL, '1999-07-28 00:00:00.000', NULL, 78, '2022-09-09 00:00:00.000', 3, 'Abdulla', 'Junior Developer', '26');
+INSERT INTO retail_cloud.employee_info
+(is_reporting_manager, date_of_birth, department_id, employee_id, joining_date, reporting_manager_id, emplyee_name, "role", yearly_bonus_percentage)
+VALUES(true, '1998-01-22 00:00:00.000', 2, 2, '2022-09-09 00:00:00.000', NULL, 'ibrahim', 'Head of testers', '70');
+INSERT INTO retail_cloud.employee_info
+(is_reporting_manager, date_of_birth, department_id, employee_id, joining_date, reporting_manager_id, emplyee_name, "role", yearly_bonus_percentage)
+VALUES(true, '1998-02-22 00:00:00.000', 3, 3, '2022-09-09 00:00:00.000', NULL, 'joyal', 'Head of developer', '50');
+INSERT INTO retail_cloud.employee_info
+(is_reporting_manager, date_of_birth, department_id, employee_id, joining_date, reporting_manager_id, emplyee_name, "role", yearly_bonus_percentage)
+VALUES(NULL, '1998-03-22 00:00:00.000', NULL, 5, '2022-09-09 00:00:00.000', 2, 'yash', 'Senior tester', '23');
+INSERT INTO retail_cloud.employee_info
+(is_reporting_manager, date_of_birth, department_id, employee_id, joining_date, reporting_manager_id, emplyee_name, "role", yearly_bonus_percentage)
+VALUES(NULL, '1998-03-22 00:00:00.000', NULL, 4, '2022-09-09 00:00:00.000', 1, 'harikrishna', 'Senior hr', '23');
+INSERT INTO retail_cloud.employee_info
+(is_reporting_manager, date_of_birth, department_id, employee_id, joining_date, reporting_manager_id, emplyee_name, "role", yearly_bonus_percentage)
+VALUES(NULL, '1999-05-22 00:00:00.000', NULL, 6, '2022-09-09 00:00:00.000', 3, 'shafi', 'Senior developer', '23');
+INSERT INTO retail_cloud.employee_info
+(is_reporting_manager, date_of_birth, department_id, employee_id, joining_date, reporting_manager_id, emplyee_name, "role", yearly_bonus_percentage)
+VALUES(NULL, '1972-05-22 00:00:00.000', NULL, 52, '2022-09-09 00:00:00.000', 1, 'aslam', 'Junior HR', '33');
+INSERT INTO retail_cloud.employee_info
+(is_reporting_manager, date_of_birth, department_id, employee_id, joining_date, reporting_manager_id, emplyee_name, "role", yearly_bonus_percentage)
+VALUES(NULL, '1978-05-22 00:00:00.000', NULL, 53, '2022-09-09 00:00:00.000', 1, 'kuna', 'Junior HR', '56');
+INSERT INTO retail_cloud.employee_info
+(is_reporting_manager, date_of_birth, department_id, employee_id, joining_date, reporting_manager_id, emplyee_name, "role", yearly_bonus_percentage)
+VALUES(NULL, '1988-05-22 00:00:00.000', NULL, 54, '2022-09-09 00:00:00.000', 1, 'nikhil', 'Junior HR', '93');
+INSERT INTO retail_cloud.employee_info
+(is_reporting_manager, date_of_birth, department_id, employee_id, joining_date, reporting_manager_id, emplyee_name, "role", yearly_bonus_percentage)
+VALUES(NULL, '1978-05-22 00:00:00.000', NULL, 55, '2022-09-09 00:00:00.000', 1, 'arpitha', 'Junior HR', '63');
+INSERT INTO retail_cloud.employee_info
+(is_reporting_manager, date_of_birth, department_id, employee_id, joining_date, reporting_manager_id, emplyee_name, "role", yearly_bonus_percentage)
+VALUES(NULL, '1998-05-28 00:00:00.000', NULL, 56, '2022-09-09 00:00:00.000', 1, 'gayathiri', 'Junior HR', '83');
+INSERT INTO retail_cloud.employee_info
+(is_reporting_manager, date_of_birth, department_id, employee_id, joining_date, reporting_manager_id, emplyee_name, "role", yearly_bonus_percentage)
+VALUES(NULL, '1998-05-01 00:00:00.000', NULL, 57, '2022-09-09 00:00:00.000', 1, 'Ashwini', 'Junior HR', '43');
+INSERT INTO retail_cloud.employee_info
+(is_reporting_manager, date_of_birth, department_id, employee_id, joining_date, reporting_manager_id, emplyee_name, "role", yearly_bonus_percentage)
+VALUES(NULL, '1998-01-01 00:00:00.000', NULL, 58, '2022-09-09 00:00:00.000', 1, 'Vishal kumar', 'Junior HR', '33');
+INSERT INTO retail_cloud.employee_info
+(is_reporting_manager, date_of_birth, department_id, employee_id, joining_date, reporting_manager_id, emplyee_name, "role", yearly_bonus_percentage)
+VALUES(NULL, '1995-07-22 00:00:00.000', NULL, 59, '2022-09-09 00:00:00.000', 1, 'Haris', 'Junior HR', '43');
+INSERT INTO retail_cloud.employee_info
+(is_reporting_manager, date_of_birth, department_id, employee_id, joining_date, reporting_manager_id, emplyee_name, "role", yearly_bonus_percentage)
+VALUES(NULL, '1996-05-27 00:00:00.000', NULL, 60, '2022-09-09 00:00:00.000', 1, 'Dhanish', 'Junior HR', '63');
+INSERT INTO retail_cloud.employee_info
+(is_reporting_manager, date_of_birth, department_id, employee_id, joining_date, reporting_manager_id, emplyee_name, "role", yearly_bonus_percentage)
+VALUES(NULL, '1995-05-27 00:00:00.000', NULL, 64, '2022-09-09 00:00:00.000', 2, 'Sriya', 'Junior Tester', '90');
+INSERT INTO retail_cloud.employee_info
+(is_reporting_manager, date_of_birth, department_id, employee_id, joining_date, reporting_manager_id, emplyee_name, "role", yearly_bonus_percentage)
+VALUES(true, '1993-06-25 00:00:00.000', 1, 1, '2022-09-09 00:00:00.000', NULL, 'manni', 'Head of HR', '90');
+INSERT INTO retail_cloud.employee_info
+(is_reporting_manager, date_of_birth, department_id, employee_id, joining_date, reporting_manager_id, emplyee_name, "role", yearly_bonus_percentage)
+VALUES(NULL, '1993-05-22 00:00:00.000', NULL, 65, '2022-09-09 00:00:00.000', 2, 'Guru', 'Junior Tester', '43');
+INSERT INTO retail_cloud.employee_info
+(is_reporting_manager, date_of_birth, department_id, employee_id, joining_date, reporting_manager_id, emplyee_name, "role", yearly_bonus_percentage)
+VALUES(NULL, '1994-05-22 00:00:00.000', NULL, 66, '2022-09-09 00:00:00.000', 2, 'Vikas', 'Junior Tester', '63');
+INSERT INTO retail_cloud.employee_info
+(is_reporting_manager, date_of_birth, department_id, employee_id, joining_date, reporting_manager_id, emplyee_name, "role", yearly_bonus_percentage)
+VALUES(NULL, '1992-05-22 00:00:00.000', NULL, 61, '2022-09-09 00:00:00.000', 2, 'pavan', 'Junior Tester', '75');
+INSERT INTO retail_cloud.employee_info
+(is_reporting_manager, date_of_birth, department_id, employee_id, joining_date, reporting_manager_id, emplyee_name, "role", yearly_bonus_percentage)
+VALUES(NULL, '1991-05-22 00:00:00.000', NULL, 62, '2022-09-09 00:00:00.000', 2, 'raghul', 'Junior Tester', '73');
+INSERT INTO retail_cloud.employee_info
+(is_reporting_manager, date_of_birth, department_id, employee_id, joining_date, reporting_manager_id, emplyee_name, "role", yearly_bonus_percentage)
+VALUES(NULL, '1990-05-22 00:00:00.000', NULL, 63, '2022-09-09 00:00:00.000', 2, 'Shinduja', 'Junior Tester', '23');
+INSERT INTO retail_cloud.employee_info
+(is_reporting_manager, date_of_birth, department_id, employee_id, joining_date, reporting_manager_id, emplyee_name, "role", yearly_bonus_percentage)
+VALUES(NULL, '1988-05-22 00:00:00.000', NULL, 67, '2022-09-09 00:00:00.000', 2, 'Anson', 'Junior Tester', '53');
+INSERT INTO retail_cloud.employee_info
+(is_reporting_manager, date_of_birth, department_id, employee_id, joining_date, reporting_manager_id, emplyee_name, "role", yearly_bonus_percentage)
+VALUES(NULL, '1998-05-26 00:00:00.000', NULL, 68, '2022-09-09 00:00:00.000', 2, 'Lejil', 'Junior Tester', '73');
+INSERT INTO retail_cloud.employee_info
+(is_reporting_manager, date_of_birth, department_id, employee_id, joining_date, reporting_manager_id, emplyee_name, "role", yearly_bonus_percentage)
+VALUES(NULL, '1993-05-26 00:00:00.000', NULL, 69, '2022-09-09 00:00:00.000', 2, 'Sarfas', 'Junior Tester', '43');
+INSERT INTO retail_cloud.employee_info
+(is_reporting_manager, date_of_birth, department_id, employee_id, joining_date, reporting_manager_id, emplyee_name, "role", yearly_bonus_percentage)
+VALUES(NULL, '1994-06-22 00:00:00.000', NULL, 70, '2022-09-09 00:00:00.000', 3, 'Param', 'Junior Developer', '73');
+INSERT INTO retail_cloud.employee_info
+(is_reporting_manager, date_of_birth, department_id, employee_id, joining_date, reporting_manager_id, emplyee_name, "role", yearly_bonus_percentage)
+VALUES(NULL, '1978-05-25 00:00:00.000', NULL, 71, '2022-09-09 00:00:00.000', 3, 'Vidya', 'Junior Developer', '27');
+INSERT INTO retail_cloud.employee_info
+(is_reporting_manager, date_of_birth, department_id, employee_id, joining_date, reporting_manager_id, emplyee_name, "role", yearly_bonus_percentage)
+VALUES(NULL, '1967-05-22 00:00:00.000', NULL, 72, '2022-09-09 00:00:00.000', 3, 'Alok', 'Junior Developer', '28');
+INSERT INTO retail_cloud.employee_info
+(is_reporting_manager, date_of_birth, department_id, employee_id, joining_date, reporting_manager_id, emplyee_name, "role", yearly_bonus_percentage)
+VALUES(NULL, '1945-05-22 00:00:00.000', NULL, 73, '2022-09-09 00:00:00.000', 3, 'Abhilash', 'Junior Developer', '22');

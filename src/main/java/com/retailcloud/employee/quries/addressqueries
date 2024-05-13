@@ -1,0 +1,99 @@
+INSERT INTO retail_cloud.address_info
+(address_id, employee_id, address1, address2, city_name, country_name, pincode, state_name)
+VALUES(1, 1, 'bihar', 'bihar', 'bihar', 'India', '671319', 'bihar');
+INSERT INTO retail_cloud.address_info
+(address_id, employee_id, address1, address2, city_name, country_name, pincode, state_name)
+VALUES(2, 2, 'bihar', 'bihar', 'bihar', 'India', '671319', 'bihar');
+INSERT INTO retail_cloud.address_info
+(address_id, employee_id, address1, address2, city_name, country_name, pincode, state_name)
+VALUES(3, 3, 'bihar', 'bihar', 'bihar', 'India', '671319', 'bihar');
+INSERT INTO retail_cloud.address_info
+(address_id, employee_id, address1, address2, city_name, country_name, pincode, state_name)
+VALUES(4, 4, 'kerala', 'kasargod', 'kerala', 'India', '671319', 'kerala');
+INSERT INTO retail_cloud.address_info
+(address_id, employee_id, address1, address2, city_name, country_name, pincode, state_name)
+VALUES(5, 5, 'noor manzil', 'dvd', 'karnanta', 'India', '671319', 'karnata');
+INSERT INTO retail_cloud.address_info
+(address_id, employee_id, address1, address2, city_name, country_name, pincode, state_name)
+VALUES(6, 6, 'noor manzil', 'vd', 'benguluru', 'India', '671319', 'kashmir');
+INSERT INTO retail_cloud.address_info
+(address_id, employee_id, address1, address2, city_name, country_name, pincode, state_name)
+VALUES(52, 52, 'noor manzil', 'dsv', 'benguluru', 'India', '671319', 'madhya pradesh');
+INSERT INTO retail_cloud.address_info
+(address_id, employee_id, address1, address2, city_name, country_name, pincode, state_name)
+VALUES(53, 53, 'sdfvhb', 'sddsc', 'benguluru', 'India', '671319', 'rajasthan');
+INSERT INTO retail_cloud.address_info
+(address_id, employee_id, address1, address2, city_name, country_name, pincode, state_name)
+VALUES(54, 54, 'noor manzil', 'sd', 'benguluru', 'India', '671319', 'bengal');
+INSERT INTO retail_cloud.address_info
+(address_id, employee_id, address1, address2, city_name, country_name, pincode, state_name)
+VALUES(55, 55, 'noor manzil', 'sdcsdv', 'bihar', 'India', '671319', 'utharpradesh');
+INSERT INTO retail_cloud.address_info
+(address_id, employee_id, address1, address2, city_name, country_name, pincode, state_name)
+VALUES(56, 56, 'jnbkjb', 'sd', 'bihar', 'India', '671319', 'delhi');
+INSERT INTO retail_cloud.address_info
+(address_id, employee_id, address1, address2, city_name, country_name, pincode, state_name)
+VALUES(57, 57, 'noor manzil', 'dsv', 'bihar', 'India', '671319', 'assam');
+INSERT INTO retail_cloud.address_info
+(address_id, employee_id, address1, address2, city_name, country_name, pincode, state_name)
+VALUES(58, 58, 'noor manzil', 'sdv', 'kasrgod', 'India', '671319', 'goa');
+INSERT INTO retail_cloud.address_info
+(address_id, employee_id, address1, address2, city_name, country_name, pincode, state_name)
+VALUES(59, 59, 'jkbkj', 'sdv', 'kasrgod', 'India', '671319', 'goa');
+INSERT INTO retail_cloud.address_info
+(address_id, employee_id, address1, address2, city_name, country_name, pincode, state_name)
+VALUES(60, 60, 'noor manzil', 'fgh', 'kasrgod', 'India', '671319', 'thanil nadu');
+INSERT INTO retail_cloud.address_info
+(address_id, employee_id, address1, address2, city_name, country_name, pincode, state_name)
+VALUES(61, 61, 'kbjjk', 'fghfg', 'kasrgod', 'India', '671319', 'west bengal');
+INSERT INTO retail_cloud.address_info
+(address_id, employee_id, address1, address2, city_name, country_name, pincode, state_name)
+VALUES(62, 62, 'noor manzil', 'juma masjid road', 'kasrgod', 'India', '671319', 'odissa');
+INSERT INTO retail_cloud.address_info
+(address_id, employee_id, address1, address2, city_name, country_name, pincode, state_name)
+VALUES(63, 63, 'kbj', 'juma masjid road', 'whiltefield', 'India', '671319', 'kerala');
+INSERT INTO retail_cloud.address_info
+(address_id, employee_id, address1, address2, city_name, country_name, pincode, state_name)
+VALUES(64, 64, 'noor manzil', 'juma masjid road', 'whiltefield', 'India', '671319', 'kerala');
+INSERT INTO retail_cloud.address_info
+(address_id, employee_id, address1, address2, city_name, country_name, pincode, state_name)
+VALUES(65, 65, 'kbj', 'juma masjid road', 'whiltefield', 'India', '671319', 'kerala');
+INSERT INTO retail_cloud.address_info
+(address_id, employee_id, address1, address2, city_name, country_name, pincode, state_name)
+VALUES(66, 66, 'noor manzil', 'juma masjid road', 'whiltefield', 'India', '671319', 'keral');
+INSERT INTO retail_cloud.address_info
+(address_id, employee_id, address1, address2, city_name, country_name, pincode, state_name)
+VALUES(67, 67, 'bkj', 'juma masjid road', 'whiltefield', 'India', '671319', 'karanataka');
+INSERT INTO retail_cloud.address_info
+(address_id, employee_id, address1, address2, city_name, country_name, pincode, state_name)
+VALUES(68, 68, 'noor manzil', 'juma masjid road', 'kasrgod', 'India', '671319', 'karnataka');
+INSERT INTO retail_cloud.address_info
+(address_id, employee_id, address1, address2, city_name, country_name, pincode, state_name)
+VALUES(69, 69, 'jbjk', 'juma masjid road', 'jaipur', 'India', '671319', 'karanataka');
+INSERT INTO retail_cloud.address_info
+(address_id, employee_id, address1, address2, city_name, country_name, pincode, state_name)
+VALUES(70, 70, 'jkb', 'juma masjid road', 'kasrgod', 'India', '671319', 'delhi');
+INSERT INTO retail_cloud.address_info
+(address_id, employee_id, address1, address2, city_name, country_name, pincode, state_name)
+VALUES(71, 71, 'noor manzil', 'juma masjid road', 'jaipur', 'India', '671319', 'delhi');
+INSERT INTO retail_cloud.address_info
+(address_id, employee_id, address1, address2, city_name, country_name, pincode, state_name)
+VALUES(72, 72, 'kjbjk', 'juma masjid road', 'kasrgod', 'India', '671319', 'delhi');
+INSERT INTO retail_cloud.address_info
+(address_id, employee_id, address1, address2, city_name, country_name, pincode, state_name)
+VALUES(73, 73, 'jbkk', 'juma masjid road', 'jaipur', 'India', '671319', 'delhi');
+INSERT INTO retail_cloud.address_info
+(address_id, employee_id, address1, address2, city_name, country_name, pincode, state_name)
+VALUES(74, 74, 'noor manzil', 'juma masjid road', 'kasrgod', 'India', '671319', 'kerala');
+INSERT INTO retail_cloud.address_info
+(address_id, employee_id, address1, address2, city_name, country_name, pincode, state_name)
+VALUES(75, 75, 'oihjio', 'juma masjid road', 'jaipur', 'India', '671319', 'kerala');
+INSERT INTO retail_cloud.address_info
+(address_id, employee_id, address1, address2, city_name, country_name, pincode, state_name)
+VALUES(76, 76, 'iouhiu', 'juma masjid road', 'kasrgod', 'India', '671319', 'kerala');
+INSERT INTO retail_cloud.address_info
+(address_id, employee_id, address1, address2, city_name, country_name, pincode, state_name)
+VALUES(77, 77, 'iughui', 'juma masjid road', 'jaipur', 'India', '671319', 'kerala');
+INSERT INTO retail_cloud.address_info
+(address_id, employee_id, address1, address2, city_name, country_name, pincode, state_name)
+VALUES(78, 78, 'ugiu', 'juma masjid road', 'kasrgod', 'India', '671319', 'kerala');

@@ -1,0 +1,413 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "statusCode": {
+      "type": "integer"
+    },
+    "status": {
+      "type": "string"
+    },
+    "data": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "departmentId": {
+              "type": "integer"
+            },
+            "departmentName": {
+              "type": "string"
+            },
+            "creationDate": {
+              "type": "string"
+            },
+            "location": {
+              "type": "string"
+            },
+            "noOfEmployees": {
+              "type": "number"
+            },
+            "budget": {
+              "type": "number"
+            },
+            "employee": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "employeeId": {
+                      "type": "integer"
+                    },
+                    "emplyeeName": {
+                      "type": "string"
+                    },
+                    "dateOfBirth": {
+                      "type": "string"
+                    },
+                    "addressInfo": {
+                      "type": "array",
+                      "items": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "addressId": {
+                              "type": "integer"
+                            },
+                            "address1": {
+                              "type": "string"
+                            },
+                            "address2": {
+                              "type": "string"
+                            },
+                            "pincode": {
+                              "type": "string"
+                            },
+                            "cityName": {
+                              "type": "string"
+                            },
+                            "stateName": {
+                              "type": "string"
+                            },
+                            "countryName": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "addressId",
+                            "address1",
+                            "address2",
+                            "pincode",
+                            "cityName",
+                            "stateName",
+                            "countryName"
+                          ]
+                        }
+                      ]
+                    },
+                    "role": {
+                      "type": "string"
+                    },
+                    "joiningDate": {
+                      "type": "string"
+                    },
+                    "yearlyBonusPercentage": {
+                      "type": "string"
+                    },
+                    "isReportingManager": {
+                      "type": "boolean"
+                    },
+                    "reportingManagerDetails": {
+                      "type": "null"
+                    },
+                    "reportingManagerId": {
+                      "type": "null"
+                    }
+                  },
+                  "required": [
+                    "employeeId",
+                    "emplyeeName",
+                    "dateOfBirth",
+                    "addressInfo",
+                    "role",
+                    "joiningDate",
+                    "yearlyBonusPercentage",
+                    "isReportingManager",
+                    "reportingManagerDetails",
+                    "reportingManagerId"
+                  ]
+                }
+              ]
+            }
+          },
+          "required": [
+            "departmentId",
+            "departmentName",
+            "creationDate",
+            "location",
+            "noOfEmployees",
+            "budget",
+            "employee"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "departmentId": {
+              "type": "integer"
+            },
+            "departmentName": {
+              "type": "string"
+            },
+            "creationDate": {
+              "type": "string"
+            },
+            "location": {
+              "type": "string"
+            },
+            "noOfEmployees": {
+              "type": "number"
+            },
+            "budget": {
+              "type": "number"
+            },
+            "employee": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "employeeId": {
+                      "type": "integer"
+                    },
+                    "emplyeeName": {
+                      "type": "string"
+                    },
+                    "dateOfBirth": {
+                      "type": "string"
+                    },
+                    "addressInfo": {
+                      "type": "array",
+                      "items": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "addressId": {
+                              "type": "integer"
+                            },
+                            "address1": {
+                              "type": "string"
+                            },
+                            "address2": {
+                              "type": "string"
+                            },
+                            "pincode": {
+                              "type": "string"
+                            },
+                            "cityName": {
+                              "type": "string"
+                            },
+                            "stateName": {
+                              "type": "string"
+                            },
+                            "countryName": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "addressId",
+                            "address1",
+                            "address2",
+                            "pincode",
+                            "cityName",
+                            "stateName",
+                            "countryName"
+                          ]
+                        }
+                      ]
+                    },
+                    "role": {
+                      "type": "string"
+                    },
+                    "joiningDate": {
+                      "type": "string"
+                    },
+                    "yearlyBonusPercentage": {
+                      "type": "string"
+                    },
+                    "isReportingManager": {
+                      "type": "boolean"
+                    },
+                    "reportingManagerDetails": {
+                      "type": "null"
+                    },
+                    "reportingManagerId": {
+                      "type": "null"
+                    }
+                  },
+                  "required": [
+                    "employeeId",
+                    "emplyeeName",
+                    "dateOfBirth",
+                    "addressInfo",
+                    "role",
+                    "joiningDate",
+                    "yearlyBonusPercentage",
+                    "isReportingManager",
+                    "reportingManagerDetails",
+                    "reportingManagerId"
+                  ]
+                }
+              ]
+            }
+          },
+          "required": [
+            "departmentId",
+            "departmentName",
+            "creationDate",
+            "location",
+            "noOfEmployees",
+            "budget",
+            "employee"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "departmentId": {
+              "type": "integer"
+            },
+            "departmentName": {
+              "type": "string"
+            },
+            "creationDate": {
+              "type": "string"
+            },
+            "location": {
+              "type": "string"
+            },
+            "noOfEmployees": {
+              "type": "number"
+            },
+            "budget": {
+              "type": "number"
+            },
+            "employee": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "employeeId": {
+                      "type": "integer"
+                    },
+                    "emplyeeName": {
+                      "type": "string"
+                    },
+                    "dateOfBirth": {
+                      "type": "string"
+                    },
+                    "addressInfo": {
+                      "type": "array",
+                      "items": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "addressId": {
+                              "type": "integer"
+                            },
+                            "address1": {
+                              "type": "string"
+                            },
+                            "address2": {
+                              "type": "string"
+                            },
+                            "pincode": {
+                              "type": "string"
+                            },
+                            "cityName": {
+                              "type": "string"
+                            },
+                            "stateName": {
+                              "type": "string"
+                            },
+                            "countryName": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "addressId",
+                            "address1",
+                            "address2",
+                            "pincode",
+                            "cityName",
+                            "stateName",
+                            "countryName"
+                          ]
+                        }
+                      ]
+                    },
+                    "role": {
+                      "type": "string"
+                    },
+                    "joiningDate": {
+                      "type": "string"
+                    },
+                    "yearlyBonusPercentage": {
+                      "type": "string"
+                    },
+                    "isReportingManager": {
+                      "type": "boolean"
+                    },
+                    "reportingManagerDetails": {
+                      "type": "null"
+                    },
+                    "reportingManagerId": {
+                      "type": "null"
+                    }
+                  },
+                  "required": [
+                    "employeeId",
+                    "emplyeeName",
+                    "dateOfBirth",
+                    "addressInfo",
+                    "role",
+                    "joiningDate",
+                    "yearlyBonusPercentage",
+                    "isReportingManager",
+                    "reportingManagerDetails",
+                    "reportingManagerId"
+                  ]
+                }
+              ]
+            }
+          },
+          "required": [
+            "departmentId",
+            "departmentName",
+            "creationDate",
+            "location",
+            "noOfEmployees",
+            "budget",
+            "employee"
+          ]
+        }
+      ]
+    },
+    "message": {
+      "type": "string"
+    },
+    "meta": {
+      "type": "object",
+      "properties": {
+        "page": {
+          "type": "integer"
+        },
+        "size": {
+          "type": "integer"
+        },
+        "totalElements": {
+          "type": "integer"
+        },
+        "totalPages": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "page",
+        "size",
+        "totalElements",
+        "totalPages"
+      ]
+    }
+  },
+  "required": [
+    "statusCode",
+    "status",
+    "data",
+    "message",
+    "meta"
+  ]
+}

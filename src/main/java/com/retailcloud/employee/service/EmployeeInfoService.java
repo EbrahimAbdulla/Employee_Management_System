@@ -29,4 +29,15 @@ public interface EmployeeInfoService {
 	 */
 	SummaryResponseModel fetchAllEmployeeDetails(@Valid EmployeDto dto);
 
+
+	/**
+	 * Retrieves a list of Employees information.
+	 * 
+	 * @param EmployeDto It contain a list of parameter that use for Fetching The
+	 *                  EmployeDto data according to parameter.
+	 * @return An SummaryResponseModel containing the list of retrieved EmployeDto
+	 *         with metadata.
+	 */
+	SummaryResponseModel fetchAllEmployeeInfo(@Valid EmployeDto dto);
+
 }
