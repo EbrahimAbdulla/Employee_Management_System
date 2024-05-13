@@ -40,7 +40,6 @@ public class DepartmentInfoServiceImpl implements DepartmentInfoService{
      * The ModelMapper is automatically injected to facilitate object-to-object
      * mapping and conversion.
      */
-
     @Autowired
     ModelMapper mapper;
     
@@ -74,10 +73,9 @@ public class DepartmentInfoServiceImpl implements DepartmentInfoService{
 	 */
 	@Override
 	public ResponseModel saveOrUpdateDepartmentInfo(DepartmentInfoModel departmentModel) {
-		try {
-			
+		try {		
 			mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
-	        DepartmentInfo departmentObj = mapper.map(departmentModel, DepartmentInfo.class);
+	        DepartmentInfo departmentObj = mapper.map(departmentModel, DepartmentInfo.class);    
 	        LocalDate today = LocalDate.now();
 	        Date creationDate = Date.from(today.atStartOfDay(ZoneId.systemDefault()).toInstant());
 	        departmentObj.setCreationDate(creationDate);
@@ -87,15 +85,22 @@ public class DepartmentInfoServiceImpl implements DepartmentInfoService{
 	        	if(existingDepartmentInfo.isPresent()) {
 	        		DepartmentInfo departmentInfo = existingDepartmentInfo.get();
 	        		utils.updateDepartmentInfo(departmentInfo,departmentModel);
-	        		data = departmentInfoRepo.save(departmentInfo);
-	        	}
-	        	
+	        		try {
+	        			data = departmentInfoRepo.save(departmentInfo);			
+					} catch (Exception e) {
+						e.printStackTrace();
+				        return new ResponseModel(HttpStatus.CONFLICT.value(), HttpStatus.CONFLICT, null, "Exception while calling save repository.");
+					}
+	        	}	
 	        }else {
-    	        data = departmentInfoRepo.save(departmentObj);   		
-        	}
-	        
-	    	DepartmentInfoModel responseObj = mapper.map(data, DepartmentInfoModel.class);  
-	    	
+	        	try {			
+	        		data = departmentInfoRepo.save(departmentObj);   		
+				} catch (Exception e) {
+					e.printStackTrace();
+			        return new ResponseModel(HttpStatus.CONFLICT.value(), HttpStatus.CONFLICT, null, "Exception while calling save repository.");						
+				}
+        	}     
+	    	DepartmentInfoModel responseObj = mapper.map(data, DepartmentInfoModel.class);   	
 	        return new ResponseModel(HttpStatus.CREATED.value(), HttpStatus.CREATED, responseObj, "Successfully");
 			
 		} catch (Exception e) {
@@ -103,7 +108,6 @@ public class DepartmentInfoServiceImpl implements DepartmentInfoService{
 	        return new ResponseModel(HttpStatus.CONFLICT.value(), HttpStatus.CONFLICT, null, "Exception while department save.");		
 		}     
 	}
-
 
 	/**
 	 * Delete a Department by its unique ID.
@@ -131,8 +135,7 @@ public class DepartmentInfoServiceImpl implements DepartmentInfoService{
 				e.printStackTrace();
 				return new ResponseModel(HttpStatus.CONFLICT.value(), HttpStatus.CONFLICT, false,
 						"Exception occured while excecuting method");
-			}
-			
+			}		
 		} catch (Exception e) {
 			e.printStackTrace();
 			return new ResponseModel(HttpStatus.CONFLICT.value(), HttpStatus.CONFLICT, false,
@@ -140,8 +143,7 @@ public class DepartmentInfoServiceImpl implements DepartmentInfoService{
 
 		}				
 	}
-
-
+	
 	/**
 	 * Retrieves a list of Department.
 	 * 
@@ -153,7 +155,6 @@ public class DepartmentInfoServiceImpl implements DepartmentInfoService{
 	 */
 	@Override
 	public SummaryResponseModel fetchDepartmentDetails(DepartmentDto dto) {
-		
 		try {
 			PageMetaModel metaModel = null;
 	        List<DepartmentInformationResponseModel> responseList = new ArrayList<>();
@@ -168,7 +169,7 @@ public class DepartmentInfoServiceImpl implements DepartmentInfoService{
 	                        ManagingDirectorsDetails managingDirectorsDetails = new ManagingDirectorsDetails();
 	                        ManagingDirectorsDetails updateManagingDirectorDetails = utils.updateManagingDirectorDetails(managingDirectorsDetails, reportingManger);
 	                        List<EmployeeInfo> employees = employeeRepo.findByManagingDirectorId(reportingManger.getEmployeeId());
-	                        ArrayList<EmployeeInfoModel> employeeModelList = new ArrayList<>();
+	                        List<EmployeeInfoModel> employeeModelList = new ArrayList<>();
 	                        for (EmployeeInfo empl : employees) {
 	                            EmployeeInfoModel employee = mapper.map(empl, EmployeeInfoModel.class);
 	                            employeeModelList.add(employee);
@@ -192,7 +193,6 @@ public class DepartmentInfoServiceImpl implements DepartmentInfoService{
 	    				firstIndex = Math.min((dto.getPage() - 1) * dto.getSize(), responseList.size());
 	    				maxIndex = Math.min(dto.getSize() + firstIndex, responseList.size());
 	    			}
-
 	    			paginatedData = responseList.subList(firstIndex, maxIndex);
 	    			return new SummaryResponseModel(HttpStatus.OK.value(), HttpStatus.OK, paginatedData,
 	    					"Data fetched successfully", metaModel);   	
@@ -206,9 +206,7 @@ public class DepartmentInfoServiceImpl implements DepartmentInfoService{
 			e.printStackTrace();
 		  	return new SummaryResponseModel(HttpStatus.CONFLICT.value(), HttpStatus.CONFLICT, null,
 	                "Something went wrong.", null);
-		}
-		
-		
+		}	
     }
 
 	/**
@@ -221,8 +219,7 @@ public class DepartmentInfoServiceImpl implements DepartmentInfoService{
 	 */
 	@Override
 	public SummaryResponseModel fetchAll(@Valid DepartmentDto dto) {
-		try {
-			
+		try {		
 			List<DepartmentInfo> departmentInfoList = departmentInfoRepo.findAll();   
 	        if(CollectionUtils.isEmpty(departmentInfoList)) {
 	        	return new SummaryResponseModel(HttpStatus.CONFLICT.value(), HttpStatus.CONFLICT, null,
@@ -249,12 +246,9 @@ public class DepartmentInfoServiceImpl implements DepartmentInfoService{
 	        return new SummaryResponseModel(HttpStatus.OK.value(), HttpStatus.OK, responseList,
 	                "Fetched details successfully.", null);	
 		} catch (Exception e) {
-
 			e.printStackTrace();
 			return new SummaryResponseModel(HttpStatus.CONFLICT.value(), HttpStatus.CONFLICT, null,
 	                "Something went wrong.", null);
-		}
-
-        	
+		}    	
 	}
 }

@@ -93,13 +93,22 @@ public class EmployeeInfoServiceImpl implements EmployeeInfoService{
 				if(employeClass.isPresent()) {
 					EmployeeInfo employeeInfo = employeClass.get();
 					utils.updateEmploeeInfo(employeeInfo, employeeModel);
-					data = employeeRepo.save(employeeInfo);
+					try {
+						data = employeeRepo.save(employeeInfo);		
+					} catch (Exception e) {
+						e.printStackTrace();
+				        return new ResponseModel(HttpStatus.CONFLICT.value(), HttpStatus.CONFLICT, null, "exception occured while calling save method dor employee table.");		
+					}
 				}else {
 			        return new ResponseModel(HttpStatus.CONFLICT.value(), HttpStatus.CONFLICT, null, "Employee is not present.");		
-
 				}
 			} else {
-				data = employeeRepo.save(employeeObj);
+				try {				
+					data = employeeRepo.save(employeeObj);
+				} catch (Exception e) {
+					e.printStackTrace();
+			        return new ResponseModel(HttpStatus.CONFLICT.value(), HttpStatus.CONFLICT, null, "exception occured while calling save method dor employee table.");		
+				}
 			}
 			EmployeeInfoModel employeeResponse = mapper.map(data, EmployeeInfoModel.class);
 	        return new ResponseModel(HttpStatus.CREATED.value(), HttpStatus.CREATED, employeeResponse, "Successfully");
@@ -122,14 +131,11 @@ public class EmployeeInfoServiceImpl implements EmployeeInfoService{
 		
 		try {
 			List<EmployeeInfoModel> responseList = new ArrayList<>();
-			List<EmployeeInfo> employeeDetails = employeeRepo.findAll();
-			
+			List<EmployeeInfo> employeeDetails = employeeRepo.findAll();		
 			if(CollectionUtils.isEmpty(employeeDetails)) {
 				return new SummaryResponseModel(HttpStatus.CONFLICT.value(), HttpStatus.CONFLICT, null,
 		                "Employee Details not found.", null);
-			}
-			
-			
+			}	
 			for(EmployeeInfo employee:employeeDetails) {
 				EmployeeInfoModel employe = mapper.map(employee, EmployeeInfoModel.class);
 				if(employee.getReportingManagerDetails() != null) {
@@ -148,27 +154,21 @@ public class EmployeeInfoServiceImpl implements EmployeeInfoService{
 	 			int firstIndex = (dto.getPage() - 1) * dto.getSize();
 	 			int maxIndex = dto.getSize() + firstIndex;
 	 			List<EmployeeInfoModel> paginatedData = null;
-
 	 			if (responseList != null && responseList.size() <= maxIndex) {
 	 				firstIndex = Math.min((dto.getPage() - 1) * dto.getSize(), responseList.size());
 	 				maxIndex = Math.min(dto.getSize() + firstIndex, responseList.size());
 	 			}
-
 	 			paginatedData = responseList.subList(firstIndex, maxIndex);
 	 			return new SummaryResponseModel(HttpStatus.OK.value(), HttpStatus.OK, paginatedData,
 	 					"Data fetched successfully", metaModel); 
-			 }
-			 
-			
+			 }	 	
 			return new SummaryResponseModel(HttpStatus.OK.value(), HttpStatus.OK, responseList,
-	                "Fetched details successfully.", null);	
-			
+	                "Fetched details successfully.", null);		
 		} catch (Exception e) {
 			e.printStackTrace();
 			return new SummaryResponseModel(HttpStatus.CONFLICT.value(), HttpStatus.CONFLICT, null,
 	                "Something went wrong.", null);
-		}
-		
+		}	
 	}
 
 	
@@ -224,7 +224,6 @@ public class EmployeeInfoServiceImpl implements EmployeeInfoService{
 			return new SummaryResponseModel(HttpStatus.CONFLICT.value(), HttpStatus.CONFLICT, null,
 	                "Something went wrong.", null);
 			
-		}
-		
+		}	
 	}
 }

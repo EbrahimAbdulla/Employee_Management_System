@@ -10,6 +10,9 @@ import com.retailcloud.employee.entity.EmployeeInfo;
 @Repository
 public interface EmployeeInfoRepository extends JpaRepository<EmployeeInfo, Long>{
 
+	/**
+     * Its a jpa query which will retrive reporting manager details by using employeeId
+     */
 	@Query("from EmployeeInfo em WHERE em.reportingManagerDetails.employeeId =:employeeId")
 	List<EmployeeInfo> findByManagingDirectorId(Long employeeId);
 

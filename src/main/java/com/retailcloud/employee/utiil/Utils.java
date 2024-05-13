@@ -18,7 +18,10 @@ import com.retailcloud.employee.model.ManagingDirectorsDetails;
 
 @Service
 public class Utils {
-
+	
+	/**
+     * This method will update department table
+     */
 	public void updateDepartmentInfo(DepartmentInfo dataFromDb, DepartmentInfoModel newData) {
 		if (!Strings.isNullOrEmpty(newData.getDepartmentName()))
 			dataFromDb.setDepartmentName(newData.getDepartmentName());
@@ -35,8 +38,10 @@ public class Utils {
 		dataFromDb.setEmployee(dataFromDb.getEmployee());
 	}
 
+	/**
+     * This method will update employee table
+     */
 	private void validateEmployeeInfo(List<EmployeeInfo> dataFromDb, List<EmployeeInfoModel> newData) {
-
 		Iterator<EmployeeInfo> dataFromDbIterator = dataFromDb.iterator();
 		Iterator<EmployeeInfoModel> newDataIterator = newData.iterator();
 		while (dataFromDbIterator.hasNext() && newDataIterator.hasNext()) {
@@ -57,14 +62,15 @@ public class Utils {
 		}
 	}
 
+	/**
+     * This method will update Address table
+     */
 	private void validateAddressInfo(List<AddressInfo> dataFromDb, List<AddressInfoModel> newDataFromDb) {
 		Iterator<AddressInfo> dataFromDbIterator = dataFromDb.iterator();
 		Iterator<AddressInfoModel> newDataIterator = newDataFromDb.iterator();
-
 		while (dataFromDbIterator.hasNext() && newDataIterator.hasNext()) {
 			AddressInfo dataNext = dataFromDbIterator.next();
 			AddressInfoModel newNext = newDataIterator.next();
-
 			if (!Strings.isNullOrEmpty(newNext.getAddress1()))
 				dataNext.setAddress1(newNext.getAddress1());
 			if (!Strings.isNullOrEmpty(newNext.getAddress2()))
@@ -80,8 +86,10 @@ public class Utils {
 		}
 	}
 
+	/**
+     * This method will update employee table
+     */
 	public void updateEmploeeInfo(EmployeeInfo dataFromDbNext, EmployeeInfoModel newDataNext) {
-
 		if (newDataNext.getDateOfBirth() != null)
 			dataFromDbNext.setDateOfBirth(newDataNext.getDateOfBirth());
 		if (!Strings.isNullOrEmpty(newDataNext.getEmplyeeName()))
@@ -96,9 +104,11 @@ public class Utils {
 		}
 	}
 
+	/**
+     * This method will update DepartmentInformationResponseModel table
+     */
 	public DepartmentInformationResponseModel updateDeptMainModel(DepartmentInformationResponseModel model,
 			DepartmentInfo departmentInfo) {
-
 		model.setDepartmentId(departmentInfo.getDepartmentId());
 		model.setDepartmentName(departmentInfo.getDepartmentName());
 		model.setBudget(departmentInfo.getBudget() != null ? departmentInfo.getBudget() : null);
@@ -109,6 +119,9 @@ public class Utils {
 
 	}
 
+	/**
+     * This method will update ManagingDirectorsDetails table
+     */
 	public ManagingDirectorsDetails updateManagingDirectorDetails(ManagingDirectorsDetails model,
 			EmployeeInfo reportingManger) {
 		model.setEmployeeId(reportingManger.getEmployeeId());
@@ -124,10 +137,12 @@ public class Utils {
 
 	}
 
+	/**
+     * This method will update AddressInfoModel table
+     */
 	private List<AddressInfoModel> updateAddressModel(List<AddressInfo> addressInfo, List<AddressInfoModel> model) {
 		List<AddressInfoModel> addresList = new ArrayList<>();
 		Iterator<AddressInfo> entityIterator = addressInfo.iterator();
-//		Iterator<AddressInfoModel> modelIterator = model.iterator();
 		while(entityIterator.hasNext() ) {
 			AddressInfoModel modelNext = new AddressInfoModel();
 			AddressInfo entityNext = entityIterator.next();
@@ -140,8 +155,6 @@ public class Utils {
 			modelNext.setCountryName(entityNext.getCountryName());
 			addresList.add(modelNext);
 		}
-		return addresList;
-		
+		return addresList;	
 	}
-
 }
