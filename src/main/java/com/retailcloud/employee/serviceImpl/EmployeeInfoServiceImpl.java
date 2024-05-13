@@ -11,16 +11,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
-import com.google.common.reflect.TypeToken;
 import com.retailcloud.employee.dto.EmployeDto;
-import com.retailcloud.employee.entity.AddressInfo;
-import com.retailcloud.employee.entity.DepartmentInfo;
 import com.retailcloud.employee.entity.EmployeeInfo;
-import com.retailcloud.employee.model.DepartmentInfoModel;
-import com.retailcloud.employee.model.DepartmentInformationResponseModel;
 import com.retailcloud.employee.model.EmployeeInfoModel;
 import com.retailcloud.employee.model.EmployeeInfomartionModel;
-import com.retailcloud.employee.model.EmployeeInformationResponseModel;
 import com.retailcloud.employee.model.PageMetaModel;
 import com.retailcloud.employee.model.ResponseModel;
 import com.retailcloud.employee.model.SummaryResponseModel;
@@ -29,11 +23,6 @@ import com.retailcloud.employee.repository.EmployeeInfoRepository;
 import com.retailcloud.employee.service.EmployeeInfoService;
 import com.retailcloud.employee.utiil.Utils;
 
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.criteria.CriteriaBuilder;
-import jakarta.persistence.criteria.CriteriaQuery;
-import jakarta.persistence.criteria.Join;
-import jakarta.persistence.criteria.Root;
 import jakarta.validation.Valid;
 @Service
 public class EmployeeInfoServiceImpl implements EmployeeInfoService{
